@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruits_hub/core/helper_fuctions/on_generate_routes.dart';
+import 'package:fruits_hub/core/services/shared_prefrences.dart';
 import 'package:fruits_hub/features/splash/presentation/views/spalsh_view.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,6 +13,7 @@ import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = CustomBlocObserver();
+  await Prefs.init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -35,6 +37,7 @@ class FruitHub extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+      locale:  const Locale('ar', 'AE'),
       supportedLocales: const [
         Locale('ar', 'AE'),
         // اللغة العربية

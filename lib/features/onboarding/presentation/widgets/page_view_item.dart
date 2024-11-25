@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruits_hub/constants.dart';
+import 'package:fruits_hub/core/services/shared_prefrences.dart';
 import 'package:fruits_hub/core/utils/app_text_styles.dart';
 import 'package:fruits_hub/features/auth/presentation/cubits/views/login_view.dart';
 
@@ -45,6 +47,7 @@ class PageViewItem extends StatelessWidget {
                 visible: isVisible,
                 child: GestureDetector(
                   onTap: () {
+                    Prefs.setBool(key: kIsOnBoardingViewSeen, value: true);
                     Navigator.of(context)
                         .pushReplacementNamed(LoginView.routeName);
                   },

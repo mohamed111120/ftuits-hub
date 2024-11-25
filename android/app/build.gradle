@@ -29,11 +29,12 @@ if (flutterVersionName == null) {
 android {
     namespace = "com.example.fruits_hub"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "26.3.11579264"
+     
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     defaultConfig {
@@ -47,14 +48,14 @@ android {
         versionName = flutterVersionName
     }
 
-    signingConfigs {
-        debug {
-            storeFile file('fruits-key.jks')
-            storePassword '123456'
-            keyAlias 'fruits-key'
-            keyPassword '123456'
-        }
-    }
+    // signingConfigs {
+    //     debug {
+    //         storeFile file('fruits-key.jks')
+    //         storePassword '123456'
+    //         keyAlias 'fruits-key'
+    //         keyPassword '123456'
+    //     }
+    // }
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
